@@ -30,29 +30,43 @@ body {
     font-weight: 100;
     color: $secondary-color;
   }
-}
 
-.todoForm {
-  @include flexCenter();
-  flex-direction: column;
-  width: 50rem;
-  padding: 1rem 0.5rem 1rem 2rem;
-  background-color: $secondary-color;
-  border-radius: 2rem;
-  input {
-    width: 100%;
-    height: 4rem;
-    padding: 0 0.5rem;
-    border: none;
-    border-bottom: 1px solid $primary-color;
-    &:hover,
-    &:focus {
-      outline: none;
+  form {
+    @include flexCenter();
+    flex-direction: column;
+    width: 50rem;
+    padding: 1rem 0.5rem 1rem 2rem;
+    background-color: $secondary-color;
+    border-radius: 2rem;
+    input {
+      width: 100%;
+      height: 4rem;
+      padding: 0 0.5rem;
+      border: none;
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+      background-color: transparent;
     }
-    background-color: transparent;
   }
 }
 
+.todoList {
+  @include flexCenter();
+  flex-direction: column;
+  width: 50rem;
+  padding: 1rem 1rem 1rem 2rem;
+  background-color: $secondary-color;
+  border-radius: 2rem;
+}
+
+.completed {
+  label {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+}
 .todoItem {
   @include flexCenter();
   justify-content: space-around;
