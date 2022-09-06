@@ -6,7 +6,7 @@ function App() {
   const [todos, setTodos] = useState();
 
   useEffect(() => {
-    fetch('https://63148a4cfa82b738f7497d23.mockapi.io/todos')
+    fetch(process.env.REACT_APP_API_KEY)
       .then((response) => {
         if (response.ok) {
           return response.json();

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TodoItem from './TodoItem';
+import { addDataToApi } from '../utils/apiQueries';
 
 function Todo({ todos, setTodos }) {
   const [inputText, setInputText] = useState('');
@@ -11,16 +12,16 @@ function Todo({ todos, setTodos }) {
 
   const addTask = (e) => {
     e.preventDefault();
+    let data = {
+      content: inputText,
+      isCompleted: false,
+      id: Math.round(Math.random() * 10000),
+    };
+
     if (inputText.length > 2) {
-      setTodos([
-        ...todos,
-        {
-          content: inputText,
-          isCompleted: false,
-          id: Math.round(Math.random() * 10000),
-        },
-      ]);
+      setTodos([...todos, data]);
       setInputText('');
+      addDataToApi(data);
     }
   };
 
