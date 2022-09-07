@@ -12,16 +12,23 @@ function Todo({ todos, setTodos }) {
 
   const addTask = (e) => {
     e.preventDefault();
+
     let data = {
       content: inputText,
       isCompleted: false,
-      id: Math.round(Math.random() * 10000),
     };
 
     if (inputText.length > 2) {
-      setTodos([...todos, data]);
-      setInputText('');
-      addDataToApi(data);
+      setInputText('Loading...');
+      e.target.firstChild.disabled = true;
+      addDataToApi(data).then((response) => {
+        console.log('Success: ', response);
+        setInputText('');
+        data.id = response.id;
+        setTodos([...todos, data]);
+        e.target.firstChild.disabled = false;
+        e.target.firstChild.focus();
+      });
     }
   };
 
@@ -30,7 +37,7 @@ function Todo({ todos, setTodos }) {
       <h1>todos</h1>
       <form onSubmit={addTask}>
         <input
-          placeholder='add todo'
+          placeholder='What needs to be done?'
           value={inputText}
           onChange={inputTextHandler}
         ></input>

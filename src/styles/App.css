@@ -89,25 +89,27 @@ body {
 .todoItem .toggle:active {
   border: 10px solid #262c34;
 }
-.todoItem label {
+.todoItem div.inputItem {
   width: 100%;
   overflow: scroll;
   margin: 0 1rem;
 }
-.todoItem:hover .deleteTodo {
+.todoItem:hover .todoFunc button {
   color: #262c34;
 }
 
-.deleteTodo {
+.todoFunc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todoFunc button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: transparent;
   font-weight: 900;
 }
-.deleteTodo:hover {
+.todoFunc button:hover {
   color: #262c34;
-}
-.deleteTodo::after {
-  content: "X";
 }/*# sourceMappingURL=App.css.map */

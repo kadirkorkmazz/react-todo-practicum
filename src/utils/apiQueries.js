@@ -1,15 +1,13 @@
 export const addDataToApi = (data) => {
-  fetch(process.env.REACT_APP_API_KEY, {
-    method: 'POST', // or 'PUT'
+  return fetch(process.env.REACT_APP_API_KEY, {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log('Success:', data);
-    })
+    .then((data) => data)
     .catch((error) => {
       console.error('Error:', error);
     });

@@ -97,30 +97,30 @@ body {
     }
   }
 
-  label {
+  div.inputItem {
     width: 100%;
     overflow: scroll;
     margin: 0 1rem;
   }
 
   &:hover {
-    .deleteTodo {
+    .todoFunc button {
       color: $primary-color;
     }
   }
 }
 
-.deleteTodo {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: transparent;
-  font-weight: 900;
+.todoFunc {
+  @include flexCenter();
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: transparent;
+    font-weight: 900;
 
-  &:hover {
-    color: $primary-color;
-  }
-  &::after {
-    content: 'X';
+    &:hover {
+      color: $primary-color;
+    }
   }
 }

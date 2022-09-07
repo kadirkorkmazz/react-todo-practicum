@@ -1,9 +1,12 @@
-import React from 'react';
 import { useState } from 'react';
 import { deleteTodoFromApi, updateTodoFromApi } from '../utils/apiQueries';
+import { AiFillDelete } from 'react-icons/ai';
+import { FiEdit } from 'react-icons/fi';
 
 function TodoItem({ content, isCompleted, id, todos, setTodos }) {
   const [isTaskCompleted, setIsTaskCompleted] = useState(isCompleted);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingText, setEditingText] = useState(content);
 
   const handleComplete = () => {
     setIsTaskCompleted(!isTaskCompleted);
@@ -21,6 +24,20 @@ function TodoItem({ content, isCompleted, id, todos, setTodos }) {
     deleteTodoFromApi(id);
   };
 
+  const handleEdit = () => {
+    setIsEditing(!isEditing);
+
+    if (isEditing) {
+      let data = {
+        content: editingText,
+        isCompleted: isCompleted,
+        id: id,
+      };
+
+      updateTodoFromApi(id, data);
+    }
+  };
+
   return (
     <li className={isTaskCompleted ? 'todoItem completed' : 'todoItem'}>
       <input
@@ -30,8 +47,26 @@ function TodoItem({ content, isCompleted, id, todos, setTodos }) {
         onChange={handleComplete}
         checked={isTaskCompleted ? true : false}
       ></input>
-      <label>{content}</label>
-      <button className='deleteTodo' onClick={handleDelete}></button>
+      <div className='inputItem'>
+        {isEditing ? (
+          <input
+            className='editInput'
+            type='text'
+            onChange={(e) => setEditingText(e.target.value)}
+            value={editingText}
+          ></input>
+        ) : (
+          <label>{editingText}</label>
+        )}
+      </div>
+      <div className='todoFunc'>
+        <button onClick={handleEdit}>
+          <FiEdit />
+        </button>
+        <button onClick={handleDelete}>
+          <AiFillDelete />
+        </button>
+      </div>
     </li>
   );
 }
