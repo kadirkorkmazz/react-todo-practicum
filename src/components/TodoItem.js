@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { deleteTodoFromApi, updateTodoFromApi } from '../utils/apiQueries';
 import { AiFillDelete } from 'react-icons/ai';
 import { FiEdit } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 function TodoItem({ content, isCompleted, id, todos, setTodos }) {
   const [isTaskCompleted, setIsTaskCompleted] = useState(isCompleted);
@@ -45,6 +46,11 @@ function TodoItem({ content, isCompleted, id, todos, setTodos }) {
         setTodos(updatedTasks);
         updateTodoFromApi(id, data);
       } else {
+        if (editingText.length < 3) {
+          toast.warning('Todo en az 3 karakterden oluşmalıdır.');
+        } else {
+          toast.warning('İçerik aynı olduğu için güncellenmedi.');
+        }
         setEditingText(content);
       }
     }

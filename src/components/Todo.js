@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TodoItem from './TodoItem';
 import { addDataToApi } from '../utils/apiQueries';
+import { toast } from 'react-toastify';
 
 function Todo({ todos, setTodos }) {
   const [inputText, setInputText] = useState('');
@@ -11,18 +12,33 @@ function Todo({ todos, setTodos }) {
       content: inputText,
       isCompleted: false,
     };
-
     if (inputText.length > 2) {
       setInputText('Loading...');
       e.target.firstChild.disabled = true;
-      addDataToApi(data).then((response) => {
-        console.log('Success: ', response);
-        setInputText('');
-        data.id = response.id;
-        setTodos([...todos, data]);
-        e.target.firstChild.disabled = false;
-        e.target.firstChild.focus();
-      });
+      const addToast = toast.loading('Ekleniyor...');
+      addDataToApi(data)
+        .then((response) => {
+          toast.update(addToast, {
+            render: `${response.content} başarıyla eklendi.`,
+            type: 'success',
+            autoClose: 2000,
+            isLoading: false,
+          });
+          setInputText('');
+          data.id = response.id;
+          setTodos([...todos, data]);
+          e.target.firstChild.disabled = false;
+          e.target.firstChild.focus();
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          toast.update(addToast, {
+            render: 'Todo eklenirken bir hata oluştu.',
+            type: 'error',
+            autoClose: 2000,
+            isLoading: false,
+          });
+        });
     }
   };
 
