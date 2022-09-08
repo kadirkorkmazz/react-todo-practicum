@@ -94,6 +94,16 @@ body {
   overflow: scroll;
   margin: 0 1rem;
 }
+.todoItem div.inputItem .editInput {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  font-style: italic;
+}
+.todoItem div.inputItem .editInput:focus {
+  outline: none;
+}
 .todoItem:hover .todoFunc button {
   color: #262c34;
 }

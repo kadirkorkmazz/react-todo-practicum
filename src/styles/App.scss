@@ -101,6 +101,17 @@ body {
     width: 100%;
     overflow: scroll;
     margin: 0 1rem;
+
+    .editInput {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid black;
+      font-style: italic;
+      &:focus {
+        outline: none;
+      }
+    }
   }
 
   &:hover {

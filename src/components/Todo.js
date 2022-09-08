@@ -5,14 +5,8 @@ import { addDataToApi } from '../utils/apiQueries';
 function Todo({ todos, setTodos }) {
   const [inputText, setInputText] = useState('');
 
-  const inputTextHandler = (e) => {
-    e.preventDefault();
-    setInputText(e.target.value);
-  };
-
   const addTask = (e) => {
     e.preventDefault();
-
     let data = {
       content: inputText,
       isCompleted: false,
@@ -39,7 +33,10 @@ function Todo({ todos, setTodos }) {
         <input
           placeholder='What needs to be done?'
           value={inputText}
-          onChange={inputTextHandler}
+          onChange={(e) => {
+            e.preventDefault();
+            setInputText(e.target.value);
+          }}
         ></input>
       </form>
       <ul className='todoList'>

@@ -28,13 +28,25 @@ function TodoItem({ content, isCompleted, id, todos, setTodos }) {
     setIsEditing(!isEditing);
 
     if (isEditing) {
-      let data = {
-        content: editingText,
-        isCompleted: isCompleted,
-        id: id,
-      };
+      if (editingText.length > 2 && content !== editingText) {
+        let data = {
+          content: editingText,
+          isCompleted: isCompleted,
+          id: id,
+        };
 
-      updateTodoFromApi(id, data);
+        let updatedTasks = todos.map((todo) => {
+          if (todo.id === data.id) {
+            return { ...todo, content: editingText };
+          }
+          return todo;
+        });
+
+        setTodos(updatedTasks);
+        updateTodoFromApi(id, data);
+      } else {
+        setEditingText(content);
+      }
     }
   };
 
