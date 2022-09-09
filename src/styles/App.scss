@@ -135,3 +135,59 @@ body {
     }
   }
 }
+
+.sign {
+  @include flexCenter();
+  flex-direction: column;
+  color: $secondary-color;
+
+  h1 {
+    font-size: 7rem;
+    font-weight: 100;
+  }
+
+  form {
+    text-align: center;
+    margin-top: 3rem;
+    input {
+      background-color: $secondary-color;
+      border-radius: 2rem;
+      height: 3rem;
+      padding: 1rem;
+      text-align: center;
+      color: $primary-color;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.user {
+  position: absolute;
+  @include flexCenter();
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  left: 2rem;
+  top: 2rem;
+  height: auto;
+
+  &:hover {
+    .logout {
+      display: block;
+    }
+  }
+  .logout {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: red;
+    margin-left: 1rem;
+
+    &::before {
+      content: '|';
+      margin-right: 1rem;
+      color: gray;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 import { addDataToApi } from '../utils/apiQueries';
 import { toast } from 'react-toastify';
 
-function Todo({ todos, setTodos }) {
+function Todo({ todos, setTodos, user, setIsLogin }) {
   const [inputText, setInputText] = useState('');
 
   const addTask = (e) => {
@@ -45,6 +45,20 @@ function Todo({ todos, setTodos }) {
   return (
     <div className='todo'>
       <h1>todos</h1>
+      <div className='user'>
+        <p>{user}</p>
+        <button
+          className='logout'
+          onClick={() => {
+            localStorage.clear();
+            setIsLogin(false);
+            toast.success('Logged out');
+          }}
+        >
+          Logout
+        </button>
+      </div>
+
       <form onSubmit={addTask}>
         <input
           placeholder='What needs to be done?'

@@ -122,4 +122,58 @@ body {
 }
 .todoFunc button:hover {
   color: #262c34;
+}
+
+.sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #e6dd8e;
+}
+.sign h1 {
+  font-size: 7rem;
+  font-weight: 100;
+}
+.sign form {
+  text-align: center;
+  margin-top: 3rem;
+}
+.sign form input {
+  background-color: #e6dd8e;
+  border-radius: 2rem;
+  height: 3rem;
+  padding: 1rem;
+  text-align: center;
+  color: #262c34;
+  margin-top: 1rem;
+}
+
+.user {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6dd8e;
+  color: #262c34;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  left: 2rem;
+  top: 2rem;
+  height: auto;
+}
+.user:hover .logout {
+  display: block;
+}
+.user .logout {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: red;
+  margin-left: 1rem;
+}
+.user .logout::before {
+  content: "|";
+  margin-right: 1rem;
+  color: gray;
 }/*# sourceMappingURL=App.css.map */
