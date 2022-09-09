@@ -15,11 +15,11 @@ function Todo({ todos, setTodos, user, setIsLogin }) {
     if (inputText.length > 2) {
       setInputText('Loading...');
       e.target.firstChild.disabled = true;
-      const addToast = toast.loading('Ekleniyor...');
+      const addToast = toast.loading('Adding...');
       addDataToApi(data)
         .then((response) => {
           toast.update(addToast, {
-            render: `${response.content} başarıyla eklendi.`,
+            render: `${response.content} successfully added.`,
             type: 'success',
             autoClose: 2000,
             isLoading: false,
@@ -33,7 +33,7 @@ function Todo({ todos, setTodos, user, setIsLogin }) {
         .catch((error) => {
           console.error('Error:', error);
           toast.update(addToast, {
-            render: 'Todo eklenirken bir hata oluştu.',
+            render: 'An error occurred while adding Todo.',
             type: 'error',
             autoClose: 2000,
             isLoading: false,

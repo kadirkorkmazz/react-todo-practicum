@@ -47,9 +47,11 @@ function TodoItem({ content, isCompleted, id, todos, setTodos }) {
         updateTodoFromApi(id, data);
       } else {
         if (editingText.length < 3) {
-          toast.warning('Todo en az 3 karakterden oluşmalıdır.');
+          toast.warning('Todo must be at least 3 characters.');
         } else {
-          toast.warning('İçerik aynı olduğu için güncellenmedi.');
+          toast.warning(
+            'Todo has not been updated because the content is the same.'
+          );
         }
         setEditingText(content);
       }

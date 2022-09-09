@@ -13,7 +13,7 @@ export const addDataToApi = (data) => {
 };
 
 export const deleteTodoFromApi = (id) => {
-  const deleteToast = toast.loading('Siliniyor...');
+  const deleteToast = toast.loading('Deleting...');
   fetch(`${process.env.REACT_APP_API_KEY}/${id}`, {
     method: 'DELETE',
     headers: {
@@ -23,7 +23,7 @@ export const deleteTodoFromApi = (id) => {
     .then((response) => response.json())
     .then((data) => {
       toast.update(deleteToast, {
-        render: `${data.content} silindi.`,
+        render: `${data.content} deleted.`,
         type: 'success',
         autoClose: 2000,
         isLoading: false,
@@ -32,7 +32,7 @@ export const deleteTodoFromApi = (id) => {
     .catch((error) => {
       console.error('Error:', error);
       toast.update(deleteToast, {
-        render: 'Todo silinirken bir hata oluştu.',
+        render: 'An error occurred while deleting Todo.',
         type: 'error',
         autoClose: 2000,
         isLoading: false,
@@ -41,7 +41,7 @@ export const deleteTodoFromApi = (id) => {
 };
 
 export const updateTodoFromApi = (id, data) => {
-  const updateToast = toast.loading('Güncelleniyor...');
+  const updateToast = toast.loading('Updating...');
 
   fetch(`${process.env.REACT_APP_API_KEY}/${id}`, {
     method: 'PUT',
@@ -53,7 +53,7 @@ export const updateTodoFromApi = (id, data) => {
     .then((response) => response.json())
     .then((data) => {
       toast.update(updateToast, {
-        render: `${data.content} güncellendi.`,
+        render: `${data.content} updated.`,
         type: 'success',
         autoClose: 2000,
         isLoading: false,
@@ -62,7 +62,7 @@ export const updateTodoFromApi = (id, data) => {
     .catch((error) => {
       console.error('Error:', error);
       toast.update(updateToast, {
-        render: 'Todo güncellenirken bir hata oluştu.',
+        render: 'An error occurred while updating Todo.',
         type: 'error',
         autoClose: 2000,
         isLoading: false,
