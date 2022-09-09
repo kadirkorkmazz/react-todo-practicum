@@ -69,7 +69,7 @@ function Todo({ todos, setTodos, user, setIsLogin }) {
           }}
         ></input>
       </form>
-      <ul className='todoList'>
+      <ul className={todos && todos.length > 0 ? 'todoList' : ''}>
         {todos &&
           todos.map((todo) => (
             <TodoItem
@@ -82,6 +82,7 @@ function Todo({ todos, setTodos, user, setIsLogin }) {
             />
           ))}
       </ul>
+      <div className='todoCount'>{todos && todos.length} items left</div>
     </div>
   );
 }

@@ -4,7 +4,8 @@ import { toast } from 'react-toastify';
 function SignIn({ setIsLogin, setUser }) {
   const [inputText, setInputText] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     setIsLogin(true);
     setUser(inputText);
     localStorage.setItem('user', inputText);

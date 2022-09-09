@@ -21,7 +21,7 @@ body {
 .todo h1 {
   font-size: 7rem;
   font-weight: 100;
-  color: #e6dd8e;
+  color: #d9d185;
 }
 .todo form {
   display: flex;
@@ -30,7 +30,7 @@ body {
   flex-direction: column;
   width: 50rem;
   padding: 1rem 0.5rem 1rem 2rem;
-  background-color: #e6dd8e;
+  background-color: #d9d185;
   border-radius: 2rem;
 }
 .todo form input {
@@ -51,7 +51,7 @@ body {
   flex-direction: column;
   width: 50rem;
   padding: 1rem 1rem 1rem 2rem;
-  background-color: #e6dd8e;
+  background-color: #d9d185;
   border-radius: 2rem;
 }
 
@@ -129,7 +129,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: #e6dd8e;
+  color: #d9d185;
 }
 .sign h1 {
   font-size: 7rem;
@@ -140,7 +140,7 @@ body {
   margin-top: 3rem;
 }
 .sign form input {
-  background-color: #e6dd8e;
+  background-color: #d9d185;
   border-radius: 2rem;
   height: 3rem;
   padding: 1rem;
@@ -154,8 +154,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #e6dd8e;
-  color: #262c34;
+  color: #d9d185;
   padding: 0.5rem 2rem;
   border-radius: 2rem;
   left: 2rem;
@@ -176,4 +175,10 @@ body {
   content: "|";
   margin-right: 1rem;
   color: gray;
+}
+
+.todoCount {
+  color: #d9d185;
+  font-size: 1.3rem;
+  margin-top: 2rem;
 }/*# sourceMappingURL=App.css.map */

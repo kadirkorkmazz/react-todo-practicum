@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
 
 $primary-color: #262c34;
-$secondary-color: #e6dd8e;
+$secondary-color: #d9d185;
 
 @mixin flexCenter {
   display: flex;
@@ -164,8 +164,7 @@ body {
 .user {
   position: absolute;
   @include flexCenter();
-  background-color: $secondary-color;
-  color: $primary-color;
+  color: $secondary-color;
   padding: 0.5rem 2rem;
   border-radius: 2rem;
   left: 2rem;
@@ -190,4 +189,10 @@ body {
       color: gray;
     }
   }
+}
+
+.todoCount {
+  color: $secondary-color;
+  font-size: 1.3rem;
+  margin-top: 2rem;
 }
